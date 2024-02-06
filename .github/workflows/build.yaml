@@ -1,0 +1,17 @@
+
+on:
+  push:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    name: Build on macOS 14 (M1)
+    runs-on: macos-14
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+      - run: go build -o hello-world
+      - run: ./hello-world
+
